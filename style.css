@@ -1,0 +1,230 @@
+@font-face {
+  font-family: "H2";
+  src: url("https://files.catbox.moe/bggddl.ttf") format("woff2");
+  font-style: normal;
+  font-display: swap;
+}
+:root{
+  --main:#4a86e8;
+  --bg:#f3f7ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  color:#222;
+}
+
+
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* 縦書きテキスト */
+.text {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: #fff;
+
+  /* 初期状態 */
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition:
+    opacity 1.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: opacity, transform;
+}
+
+/* フェードイン */
+.text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+div,section,input,button{font-family: "H2", cursive;
+}
+
+/* ===== HERO ===== */
+.hero{
+  height:70vh;
+  background:
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+    url("https://maxpower01.com/upload/src/file2611.png");
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+}
+.hero-overlay{
+  padding:32px;
+  color:#fff;
+}
+.hero h1{font-size:5.4em;margin-bottom:6px;font-weight:400}
+/* ===== COUNTDOWN（HERO用・強調） ===== */
+.countdown{
+  margin-top:18px;
+  font-size:1.4em;
+  font-weight:500;
+  letter-spacing:.08em;
+  opacity:1;
+}
+
+.countdown .days{
+  display:inline-block;
+  margin:0 6px;
+  font-size:2.4em;
+  font-weight:700;
+  color:#fff;
+  line-height:1;
+
+  text-shadow:
+    0 4px 12px rgba(0,0,0,.35);
+}
+
+.countdown .label{
+  font-size:.9em;
+  opacity:.85;
+}
+
+/* ===== SECTION ===== */
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+.bg{background:var(--bg);}
+
+
+/* ===== NEWS ===== */
+.news-list{list-style:none;padding:0;margin:0;}
+.news-list li{
+  display:grid;
+  grid-template-columns:120px 80px 1fr;
+  gap:16px;
+  padding:16px 10px;
+  border-bottom:1px solid #ddd;
+}
+.news-date{font-size:.9em;color:#666;}
+.news-tag{
+  font-size:.75em;
+  padding:4px 10px;
+  border-radius:20px;
+  background:#e6efff;
+  color:var(--main);
+  text-align:center;
+}
+.news-list a{color:#222;text-decoration:none;cursor:pointer;}
+.news-list li:hover{background:rgba(74,134,232,.06);}
+
+.news-detail{display:none;}
+.news-meta{display:flex;gap:12px;font-size:.9em;color:#666;margin-bottom:20px;}
+.back-btn{
+  background:none;
+  border:none;
+  color:var(--main);
+  font-size:.95em;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+/* ===== MAP ===== */
+.map-wrap{text-align:center;}
+.expo-map{
+  width:100%;
+  max-width:900px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  cursor:pointer;
+}
+.map-note{font-size:.85em;color:#666;margin-top:8px;}
+
+.map-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:1000;
+  justify-content:center;
+  align-items:center;
+}
+.map-modal svg{
+  max-width:95%;
+  max-height:95%;
+  background:#fff;
+  border-radius:8px;
+}
+.map-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:32px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* ===== PAVILION ===== */
+.pavilion-search{margin:20px 0 30px;}
+.pavilion-search input{
+  width:100%;
+  max-width:420px;
+  padding:10px 14px;
+  font-size:.95em;
+  border:1px solid #ccc;
+  border-radius:6px;
+}
+.pavilion-search input:focus{
+  outline:none;
+  border-color:var(--main);
+}
+
+.pavilion-table{
+  width:100%;
+  border-collapse:collapse;
+}
+.pavilion-table th,
+.pavilion-table td{
+  padding:10px;
+  border-bottom:1px solid #ddd;
+  text-align:center;
+  vertical-align:middle;
+}
+.pavilion-table td:nth-child(3),
+.pavilion-table th:nth-child(3){
+  text-align:left;
+}
+.pavilion-table tbody tr{
+  cursor:pointer;
+}
+.pavilion-table tbody tr:hover{
+  background:rgba(74,134,232,.06);
+}
+
+.pavilion-detail{display:none;}
+
+@media(max-width:768px){
+  .news-list li{grid-template-columns:1fr;gap:8px;}
+  .hero h1{font-size:2em;}
+  .countdown{
+    font-size:1.2em;
+  }
+  .countdown .days{
+    font-size:2em;
+  }
+}

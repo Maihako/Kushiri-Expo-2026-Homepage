@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>空シリ博覧会 Expo2026</title>
+</head>
+<body>
+
+<!-- ===== LOADING ===== -->
+<div id="loading" aria-live="polite">
+  <div class="text">読み込み中</div>
+</div>
+
+<!-- ===== HEADER / HERO ===== -->
+<header class="hero">
+  <div class="hero-overlay">
+    <h1>空シリ博覧会 Expo2026</h1>
+    <div id="countdown" class="countdown"></div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== NEWS ===== -->
+  <section class="section bg" aria-labelledby="news-title">
+    <h2 id="news-title">お知らせ</h2>
+
+    <div id="newsListView">
+      <ul class="news-list">
+        <li>
+          <time class="news-date" datetime="2025-11-15">2025.11.15</time>
+          <span class="news-tag">公式</span>
+          <a href="#" data-news="open">開幕日・会場案内ページを公開しました</a>
+        </li>
+        <li>
+          <time class="news-date" datetime="2025-12-01">2025.12.01</time>
+          <span class="news-tag">公式</span>
+          <a href="#" data-news="reserve">来場予約受付を開始しました</a>
+        </li>
+      </ul>
+    </div>
+
+    <div id="newsDetailView" class="news-detail" hidden>
+      <button class="back-btn" id="newsBackBtn">← お知らせ一覧へ</button>
+      <div id="newsDetailInner"></div>
+    </div>
+  </section>
+
+  <!-- ===== MAP ===== -->
+  <section class="section" aria-labelledby="map-title">
+    <h2 id="map-title">会場マップ</h2>
+    <div class="map-wrap">
+      <img
+        src="https://maxpower01.com/upload/src/file2615.png"
+        alt="空シリ博覧会 会場マップ"
+        style="width:100%;">
+    </div>
+  </section>
+
+  <!-- ===== PAVILION ===== -->
+  <section class="section bg" aria-labelledby="pavilion-title">
+    <h2 id="pavilion-title">パビリオン一覧</h2>
+
+    <div id="pavilionListView">
+
+      <div class="pavilion-search">
+        <label for="pavilionSearch" class="visually-hidden">
+          パビリオン検索
+        </label>
+        <input
+          id="pavilionSearch"
+          type="search"
+          placeholder="パビリオン名・テーマで検索">
+      </div>
+
+      <table class="pavilion-table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">出展者</th>
+            <th scope="col">パビリオン名</th>
+            <th scope="col">テーマ</th>
+          </tr>
+        </thead>
+        <tbody id="pavilionTable"></tbody>
+      </table>
+    </div>
+
+    <div id="pavilionDetailView" class="pavilion-detail" hidden>
+      <button class="back-btn" id="pavilionBackBtn">← 一覧へ戻る</button>
+      <div id="pavilionDetailInner"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <small>&copy; Expo2026</small>
+</footer>
+
+</body>
+</html>
